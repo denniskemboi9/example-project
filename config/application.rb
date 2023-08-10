@@ -18,11 +18,33 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module ExampleProject
+# module ExampleProject
+#   class Application < Rails::Application
+#     # Initialize configuration defaults for originally generated Rails version.
+#     config.load_defaults 7.0
+
+#     # Configuration for the application, engines, and railties goes here.
+#     #
+#     # These settings can be overridden in specific environments using the files
+#     # in config/environments, which are processed later.
+#     #
+#     # config.time_zone = "Central Time (US & Canada)"
+#     # config.eager_load_paths << Rails.root.join("extras")
+
+#     # Only loads a smaller set of middleware suitable for API only apps.
+#     # Middleware like session, flash, cookies can be added back manually.
+#     # Skip views, helpers and assets when generating a new resource.
+#     config.api_only = true
+#   end
+# end
+
+module SmurfsApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -31,6 +53,13 @@ module ExampleProject
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # config/application.rb
+Bundler.require(*Rails.groups)
+
+# Load the dotenv gem and load the environment variables from .env file.
+Dotenv::Railtie.load if Rails.env.development?
+
+    config.secret_key_base = '11390a221efadde65a734f9f7b42e4646ee3e4186edf4a984f055368c78a3ebd9525bef1e2875ffdb62aed87b1dbb76489ac8b2b269958b78eae2b98dc484c70'
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
