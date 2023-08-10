@@ -1,7 +1,7 @@
 class Api::V1::PrivateController < ApplicationController
     before_action :authenticate_user
     before_action :auth_params, only: [:auth_params]
-    skip_before_action :authenticate_user!, only: [:auth_params]
+    skip_before_action :authenticate_user, only: [:auth_params]
   
     def test
       render json: {
