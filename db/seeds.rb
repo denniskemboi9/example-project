@@ -1,11 +1,11 @@
 require 'faker'
 puts "Seeding..."
-
+# 
 
 # Create the admin user
 User.create!(
-  username: "reagan",
-  email: "reagan@gmail.com",
+  username: "reagan1",
+  email: "reagan1@gmail.com",
   password: "reagan12_password",
   admin: true,
   date_of_birth: "2000-10-11",
@@ -30,8 +30,8 @@ User.create!(
 
 # Create regular users
 user1 = User.create!(
-    username: "andy",
-    email: "andy@gmail.com",
+    username: "andy1",
+    email: "andy1@gmail.com",
     password: "password",
     date_of_birth: "4/2/1998",
     editor: false,
