@@ -5,8 +5,7 @@ ruby "3.2.2"
 # gem 'devise'
 # gem 'devise-jwt'
 gem 'jwt'
-#gem 'jwt_denylist'
-
+# gem 'jwt_denylist'
 
 
 gem 'faker'
