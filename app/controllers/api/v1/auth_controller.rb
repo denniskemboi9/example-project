@@ -1,6 +1,6 @@
 # app/controllers/api/v1/auth_controller.rb
 class Api::V1::AuthController < ApplicationController
-   before_action :authenticate_user!, only: [:show_current_user]
+   before_action :authenticate_user, only: [:show_current_user]
 
 
    def login
