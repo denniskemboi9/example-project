@@ -1,6 +1,7 @@
 require 'faker'
 puts "Seeding..."
 
+
 # Create the admin user
 User.create!(
   username: "reagan",
