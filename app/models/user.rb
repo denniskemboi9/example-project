@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :profilePicture
   validates :username, presence: true, length: { maximum: 20 }, uniqueness: true
   validates :email, presence: true, length: { maximum: 50 }, uniqueness: true
   has_secure_password
